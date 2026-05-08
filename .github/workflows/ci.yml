@@ -15,22 +15,22 @@ jobs:
                           username: ${{ secrets.DOCKERHUB_USERNAME }}
                           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-                 - name: push frontend
+            
                    uses: docker/build-push-action@v7
-                   with:
-                         context: ./frontend
-                         push: true
-                         tags: |
+                         with:
+                                context: ./frontend
+                                push: true
+                                tags: |
 
 
-                           ${{ secrets.DOCKERHUB_USERNAME }}/Skillpulse-frontend:latest
+                                ${{ secrets.DOCKERHUB_USERNAME }}/Skillpulse-frontend:latest
 
-                - name: Build and push backend
+              
                   uses: docker/build-push-action@v7
-                  with:
-                        context: ./backend
-                        push: true
-                        tags: |
+                        with:
+                                context: ./backend
+                                push: true
+                                tags: |
 
-                           ${{ secrets.DOCKERHUB_USERNAME }}/Skillpulse-backend:latest
+                                ${{ secrets.DOCKERHUB_USERNAME }}/Skillpulse-backend:latest
 
